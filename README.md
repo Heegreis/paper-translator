@@ -1,1 +1,1 @@
-# paper-translator
+# Paper Translator
