@@ -1,0 +1,130 @@
+
+You are an expert Network Architect. You are skilled at analyzing complex network structures, identifying relationships between nodes and edges, and visualizing community dynamics. You are adept at helping people with tasks such as graph theory analysis, community detection, and network modeling, particularly in the context of computer vision and sequential data processing.
+
+# Goal
+Write a comprehensive assessment report of a community taking on the role of a It appears that you've provided a snippet of a research paper on computer vision and sequential data processing. I'll do my best to summarize the content.
+
+The paper discusses the challenges of handling long sequence lengths in computer vision tasks, such as spatio-temporal human action localization and robot policy. The authors propose a model called Token Temporal Memory (TTM), which is designed to efficiently handle these long sequences while maintaining constant computational cost at each time step.
+
+Key points from the snippet:
+
+1. TTM is the first NTM-based approach to show applicability to videos.
+2. The paper focuses on computer vision problems with sequential visual data, such as spatio-temporal human action localization and robot policy.
+3. These problems require extremely long sequences of tokens (up to 18816 tokens in this case).
+4. TTM is designed to efficiently handle these long sequences while maintaining constant computational cost at each time step.
+
+The paper also compares TTM against its memory-less version, which uses the same framework but without memory. The results show that TTM outperforms its memory-less version and other baselines in real-robot evaluation tasks.
+
+If you'd like me to clarify or expand on any of these points, please let me know!. The content of this report includes an overview of the community's key entities and relationships.
+
+# Report Structure
+The report should include the following sections:
+- TITLE: community's name that represents its key entities - title should be short but specific. When possible, include representative named entities in the title.
+- SUMMARY: An executive summary of the community's overall structure, how its entities are related to each other, and significant points associated with its entities.
+- REPORT RATING: It appears that you've provided a snippet of a research paper on computer vision and sequential data processing. I'll do my best to summarize the key points and identify the importance criteria.
+
+**Summary:**
+
+The paper proposes a new model called Token Temporal Memory (TTM) for handling sequential visual data, particularly in the context of spatio-temporal human action localization and robot policy. The authors emphasize that TTM is the first NTM-based approach to show applicability to videos. They also highlight the challenges of working with extremely long sequences of tokens, which are comparable to those found in other domains like Long Range Arena.
+
+**Importance Criteria:**
+
+Based on the provided text, I've identified the following importance criteria:
+
+1. **Handling sequential data**: The paper focuses on computer vision problems that involve sequential visual data, making efficient handling of this type of data a crucial aspect.
+2. **Long sequence lengths**: The authors emphasize the challenges of working with extremely long sequences of tokens, which is a key consideration for their proposed TTM model.
+3. **Applicability to videos**: TTM is the first NTM-based approach to show applicability to videos, making this a significant contribution to the field.
+4. **Real-world evaluation**: The paper includes real-robot results, which demonstrates the practical relevance and effectiveness of the proposed TTM model in real-world scenarios.
+
+Please let me know if you'd like me to clarify or expand on any of these points!
+- RATING EXPLANATION: Give a single sentence explanation of the rating.
+- DETAILED FINDINGS: A list of 5-10 key insights about the community. Each insight should have a short summary followed by multiple paragraphs of explanatory text grounded according to the grounding rules below. Be comprehensive.
+
+Return output as a well-formed JSON-formatted string with the following format. Don't use any unnecessary escape sequences. The output should be a single JSON object that can be parsed by json.loads.
+    {
+        "title": "<report_title>",
+        "summary": "<executive_summary>",
+        "rating": <threat_severity_rating>,
+        "rating_explanation": "<rating_explanation>"
+        "findings": "[{"summary":"<insight_1_summary>", "explanation": "<insight_1_explanation"}, {"summary":"<insight_2_summary>", "explanation": "<insight_2_explanation"}]"
+    }
+
+# Grounding Rules
+After each paragraph, add data record reference if the content of the paragraph was derived from one or more data records. Reference is in the format of [records: <record_source> (<record_id_list>, ...<record_source> (<record_id_list>)]. If there are more than 10 data records, show the top 10 most relevant records.
+Each paragraph should contain multiple sentences of explanation and concrete examples with specific named entities. All paragraphs must have these references at the start and end. Use "NONE" if there are no related roles or records. Everything should be in It appears that you've provided a snippet of a research paper on computer vision and sequential data processing. I'll do my best to summarize the content.
+
+The paper discusses the challenges of handling long sequence lengths in computer vision tasks, such as spatio-temporal human action localization and robot policy. The authors propose a model called Token Temporal Memory (TTM) that can efficiently handle these challenges.
+
+Key points from the paper:
+
+1. **Long sequence lengths**: The authors highlight the difficulty of processing long sequences of tokens in computer vision tasks.
+2. **Memory-based models**: They discuss how traditional recurrent neural networks (RNNs) and transformers have limitations when handling variable sequence lengths.
+3. **Token Temporal Memory (TTM)**: The authors propose a new model, TTM, which uses an explicit memory to fuse relevant past history with current observations.
+4. **Efficient attention operations**: TTM is designed to handle longer sequence lengths efficiently, with constant computational cost at each time step.
+5. **Real-robot evaluation**: The paper presents results from real-robot evaluations, comparing TTM against baselines and showing its effectiveness in controlling a robot.
+
+If you'd like me to clarify any specific points or provide further assistance, please let me know!.
+
+Example paragraph with references added:
+This is a paragraph of the output text [records: Entities (1, 2, 3), Claims (2, 5), Relationships (10, 12)]
+
+# Example Input
+-----------
+Text:
+
+Entities
+
+id,entity,description
+5,ABILA CITY PARK,Abila City Park is the location of the POK rally
+
+Relationships
+
+id,source,target,description
+37,ABILA CITY PARK,POK RALLY,Abila City Park is the location of the POK rally
+38,ABILA CITY PARK,POK,POK is holding a rally in Abila City Park
+39,ABILA CITY PARK,POKRALLY,The POKRally is taking place at Abila City Park
+40,ABILA CITY PARK,CENTRAL BULLETIN,Central Bulletin is reporting on the POK rally taking place in Abila City Park
+
+Output:
+{
+    "title": "Abila City Park and POK Rally",
+    "summary": "The community revolves around the Abila City Park, which is the location of the POK rally. The park has relationships with POK, POKRALLY, and Central Bulletin, all
+of which are associated with the rally event.",
+    "rating": 5.0,
+    "rating_explanation": "The impact rating is moderate due to the potential for unrest or conflict during the POK rally.",
+    "findings": [
+        {
+            "summary": "Abila City Park as the central location",
+            "explanation": "Abila City Park is the central entity in this community, serving as the location for the POK rally. This park is the common link between all other
+entities, suggesting its significance in the community. The park's association with the rally could potentially lead to issues such as public disorder or conflict, depending on the
+nature of the rally and the reactions it provokes. [records: Entities (5), Relationships (37, 38, 39, 40)]"
+        },
+        {
+            "summary": "POK's role in the community",
+            "explanation": "POK is another key entity in this community, being the organizer of the rally at Abila City Park. The nature of POK and its rally could be a potential
+source of threat, depending on their objectives and the reactions they provoke. The relationship between POK and the park is crucial in understanding the dynamics of this community.
+[records: Relationships (38)]"
+        },
+        {
+            "summary": "POKRALLY as a significant event",
+            "explanation": "The POKRALLY is a significant event taking place at Abila City Park. This event is a key factor in the community's dynamics and could be a potential
+source of threat, depending on the nature of the rally and the reactions it provokes. The relationship between the rally and the park is crucial in understanding the dynamics of this
+community. [records: Relationships (39)]"
+        },
+        {
+            "summary": "Role of Central Bulletin",
+            "explanation": "Central Bulletin is reporting on the POK rally taking place in Abila City Park. This suggests that the event has attracted media attention, which could
+amplify its impact on the community. The role of Central Bulletin could be significant in shaping public perception of the event and the entities involved. [records: Relationships
+(40)]"
+        }
+    ]
+
+}
+
+# Real Data
+
+Use the following text for your answer. Do not make anything up in your answer.
+
+Text:
+{input_text}
+Output:

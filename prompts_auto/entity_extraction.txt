@@ -1,0 +1,142 @@
+
+-Goal-
+Given a text document that is potentially relevant to this activity, first identify all entities needed from the text in order to capture the information and ideas in the text.
+Next, report all relationships among the identified entities.
+
+-Steps-
+1. Identify all entities. For each identified entity, extract the following information:
+- entity_name: Name of the entity, capitalized
+- entity_type: Suggest several labels or categories for the entity. The categories should not be specific, but should be as general as possible.
+- entity_description: Comprehensive description of the entity's attributes and activities
+Format each entity as ("entity"{tuple_delimiter}<entity_name>{tuple_delimiter}<entity_type>{tuple_delimiter}<entity_description>)
+
+2. From the entities identified in step 1, identify all pairs of (source_entity, target_entity) that are *clearly related* to each other.
+For each pair of related entities, extract the following information:
+- source_entity: name of the source entity, as identified in step 1
+- target_entity: name of the target entity, as identified in step 1
+- relationship_description: explanation as to why you think the source entity and the target entity are related to each other
+- relationship_strength: a numeric score indicating strength of the relationship between the source entity and target entity
+Format each relationship as ("relationship"{tuple_delimiter}<source_entity>{tuple_delimiter}<target_entity>{tuple_delimiter}<relationship_description>{tuple_delimiter}<relationship_strength>)
+
+3. Return output in It appears that you've provided a snippet of a research paper on computer vision and sequential data processing. I'll do my best to summarize the content.
+
+The paper discusses the challenges of handling long sequence lengths in computer vision tasks, such as spatio-temporal human action localization and robot policy. The authors propose a model called Token Temporal Memory (TTM) that can efficiently handle these challenges.
+
+Key points from the paper:
+
+1. **Long sequence lengths**: The authors highlight the difficulty of processing long sequences of tokens in computer vision tasks.
+2. **Memory-based models**: They discuss how traditional recurrent neural networks (RNNs) and transformers have limitations when handling variable sequence lengths.
+3. **Token Temporal Memory (TTM)**: The authors propose a new model, TTM, which uses an explicit memory to fuse relevant past history with current observations.
+4. **Efficient attention operations**: TTM is designed to handle longer sequence lengths efficiently, with constant computational cost at each time step.
+5. **Real-robot evaluation**: The paper presents results from real-robot evaluations, comparing TTM against baselines and showing its effectiveness in controlling a robot.
+
+If you'd like me to clarify any specific points or provide further assistance, please let me know! as a single list of all the entities and relationships identified in steps 1 and 2. Use **{record_delimiter}** as the list delimiter.
+
+4. If you have to translate into It appears that you've provided a snippet of a research paper on computer vision and sequential data processing. I'll do my best to summarize the content.
+
+The paper discusses the challenges of handling long sequence lengths in computer vision tasks, such as spatio-temporal human action localization and robot policy. The authors propose a model called Token Temporal Memory (TTM) that can efficiently handle these challenges.
+
+Key points from the paper:
+
+1. **Long sequence lengths**: The authors highlight the difficulty of processing long sequences of tokens in computer vision tasks.
+2. **Memory-based models**: They discuss how traditional recurrent neural networks (RNNs) and transformers have limitations when handling variable sequence lengths.
+3. **Token Temporal Memory (TTM)**: The authors propose a new model, TTM, which uses an explicit memory to fuse relevant past history with current observations.
+4. **Efficient attention operations**: TTM is designed to handle longer sequence lengths efficiently, with constant computational cost at each time step.
+5. **Real-robot evaluation**: The paper presents results from real-robot evaluations, comparing TTM against baselines and showing its effectiveness in controlling a robot.
+
+If you'd like me to clarify any specific points or provide further assistance, please let me know!, just translate the descriptions, nothing else!
+
+5. When finished, output {completion_delimiter}.
+
+-Examples-
+######################
+
+Example 1:
+
+text:
+# Token Turing Machines
+
+Michael S. Ryoo, Keerthana Gopalakrishnan, Kumara Kahatapitiya, Ted Xiao, Kanishka Rao, Austin Stone, Yao Lu, Julian Ibarz, Anurag Arnab Google Research mryoo@google.com
+
+## Abstract
+
+We propose Token Turing Machines (TTM), a sequential, autoregressive Transformer model with memory for real-world sequential visual understanding. Our model is inspired by the seminal Neural Turing Machine, and has an external memory consisting of a set of tokens which summarise the previous history (i.e., frames). This memory is efficiently addressed, read and written using a Transformer as the processing unit/controller at each step. The model's memory module ensures that a new observation will only be processed with the contents of the memory (and not the entire history), meaning that it can efficiently process long sequences with a bounded computational cost at each step.
+
+We show that TTM outperforms other alternatives
+------------------------
+output:
+It appears you provided a snippet of data in a specific format, followed by some text and then another block of data. I'll do my best to provide an answer based on the first block of data.
+
+The first block of data seems to be a list of entities and relationships in a fictional world, possibly from a role-playing game or a simulation. The entities include cities (e.g., Firuzabad, Cashion), people (e.g., Samuel Namara, Meggie Tazbah), and prisons (e.g., Alhamia Prison). The relationships between these entities are also listed.
+
+If you'd like to ask a specific question about this data or the world it represents, I'll do my best to help. Otherwise, please let me know how I can assist you further!
+#############################
+
+
+Example 2:
+
+text:
+ c, and Cordelia Schmid. Vivit: ´
+A video vision transformer. In *ICCV*, 2021. 2, 5, 8
+[4] Gedas Bertasius, Heng Wang, and Lorenzo Torresani.
+
+Is space-time attention all you need for video understanding? In *ICML*, volume 2, page 4, 2021. 2
+[5] Sebastian Borgeaud, Arthur Mensch, Jordan Hoffmann, Trevor Cai, Eliza Rutherford, Katie Millican, George Bm Van Den Driessche, Jean-Baptiste Lespiau, Bogdan Damoc, Aidan Clark, et al. Improving language models by retrieving from trillions of tokens. In International Conference on Machine Learning, 2022.
+
+2
+[6] James Bradbury, Roy Frostig, Peter Hawkins, Matthew James Johnson, Chris Leary, Dougal Maclaurin
+------------------------
+output:
+It appears that the input is a structured data format, likely used for knowledge graph or database storage. The output should be a human-readable representation of the data.
+
+Here's my attempt to parse and convert the input into a more readable format:
+
+**Entities**
+
+1. **Firuzabad**
+	* Type: GEO
+	* Description: Capital of Firuzabad where the Aurelians were being held
+2. **Krohaara**
+	* Type: GEO
+	* Description: Capital city in Quintara
+3. **Cashion**
+	* Type: GEO
+	* Description: Capital city in Aurelia
+4. **Samuel Namara**
+	* Type: PERSON
+	* Description: Aurelian who spent time in Tiruzia's Alhamia Prison
+5. **Alhamia Prison**
+	* Type: GEO
+	* Description: Prison in Tiruzia
+6. **Durke Bataglani**
+	* Type: PERSON
+	* Description: Aurelian journalist who was held hostage
+7. **Meggie Tazbah**
+	* Type: PERSON
+	* Description: Bratinas national and environmentalist who was held hostage
+
+**Relationships**
+
+1. Firuzabad → Aurelia (hostage exchange)
+2. Quintara → Firuzabad → Aurelia (hostage exchange brokered by Quintara)
+3. Samuel Namara → Alhamia Prison (prisoner at Alhamia prison)
+4. Samuel Namara → Meggie Tazbah → Durke Bataglani (exchanged in the same hostage release)
+5. Meggie Tazbah → Durke Bataglani (exchanged in the same hostage release)
+
+**Additional Data**
+
+1. The Aurelians were being held in Firuzabad.
+2. Quintara brokered a hostage exchange between Firuzabad and Aurelia.
+3. Samuel Namara was a prisoner at Alhamia prison.
+4. Meggie Tazbah and Durke Bataglani were exchanged in the same hostage release.
+
+Please let me know if this is accurate or if I've missed any important information!
+#############################
+
+
+
+-Real Data-
+######################
+text: {input_text}
+######################
+output:
