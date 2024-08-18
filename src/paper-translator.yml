@@ -1,0 +1,484 @@
+app:
+  description: ''
+  icon: "\U0001F916"
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: paper-translator
+kind: app
+version: 0.1.0
+workflow:
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1721755277347-source-1721909973478-target
+      source: '1721755277347'
+      sourceHandle: source
+      target: '1721909973478'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1721925983224-source-1721755394129-target
+      selected: false
+      source: '1721925983224'
+      sourceHandle: source
+      target: '1721755394129'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1721919637363'
+        sourceType: llm
+        targetType: llm
+      id: 1721919747261-source-1721977393700-target
+      source: '1721919747261'
+      sourceHandle: source
+      target: '1721977393700'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1721909973478-source-1721977747624-target
+      source: '1721909973478'
+      sourceHandle: source
+      target: '1721977747624'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1721977747624-source-1721919637363-target
+      source: '1721977747624'
+      sourceHandle: source
+      target: '1721919637363'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 17219802743190-source-1721925983224-target
+      source: '17219802743190'
+      sourceHandle: source
+      target: '1721925983224'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 1721919637363-source-17239538818890-target
+      source: '1721919637363'
+      sourceHandle: source
+      target: '17239538818890'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 17239538818890-source-17219802743190-target
+      source: '17239538818890'
+      sourceHandle: source
+      target: '17219802743190'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: "\u958B\u59CB"
+        type: start
+        variables:
+        - label: input
+          max_length: 99999
+          options: []
+          required: true
+          type: paragraph
+          variable: input
+      height: 90
+      id: '1721755277347'
+      position:
+        x: 30
+        y: 301.5
+      positionAbsolute:
+        x: 30
+        y: 301.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1721925983224'
+          - result
+          variable: output
+        selected: false
+        title: "\u7D50\u675F"
+        type: end
+      height: 90
+      id: '1721755394129'
+      position:
+        x: 2595
+        y: 301.5
+      positionAbsolute:
+        x: 2595
+        y: 301.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import re\n\ndef get_markdown_headers(markdown_text):\n    pattern\
+          \ = r'^#{1,6} .*?$'\n    headers = re.findall(pattern, markdown_text, re.MULTILINE)\n\
+          \    return headers\n\ndef main(input: str) -> dict:\n    splited_content\
+          \ = re.split('^#.*$', input, flags=re.MULTILINE)[1:]\n    for i in range(len(splited_content)):\n\
+          \        splited_content[i] = splited_content[i].strip()\n    return {\n\
+          \        'headers': get_markdown_headers(input),\n        'chapters_content':\
+          \ splited_content,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          chapters_content:
+            children: null
+            type: array[string]
+          headers:
+            children: null
+            type: array[string]
+        selected: false
+        title: "\u62C6\u70BA\u6A19\u984C\u548C\u5167\u5BB9"
+        type: code
+        variables:
+        - value_selector:
+          - '1721755277347'
+          - input
+          variable: input
+      height: 54
+      id: '1721909973478'
+      position:
+        x: 334
+        y: 301.5
+      positionAbsolute:
+        x: 334
+        y: 301.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        height: 203
+        iterator_selector:
+        - '1721977747624'
+        - all_paragraphs
+        output_selector:
+        - '1721977393700'
+        - text
+        output_type: array[string]
+        selected: false
+        startNodeType: llm
+        start_node_id: '1721919747261'
+        title: "\u8FED\u4EE3"
+        type: iteration
+        width: 681
+      height: 203
+      id: '1721919637363'
+      position:
+        x: 942
+        y: 301.5
+      positionAbsolute:
+        x: 942
+        y: 301.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 681
+      zIndex: 1
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        isIterationStart: true
+        iteration_id: '1721919637363'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemma2
+          provider: ollama
+        prompt_template:
+        - id: 614c21c9-de3a-46d7-ac1c-612d63551397
+          role: system
+          text: "\u8ACB\u5C07\u82F1\u6587\u7FFB\u8B6F\u70BA\u7E41\u9AD4\u4E2D\u6587\
+            \uFF0C\u4E26\u76F4\u63A5\u8F38\u51FA\u7FFB\u8B6F\u7D50\u679C\uFF0C\u4E0D\
+            \u8981\u9032\u884C\u89E3\u91CB\u8207\u8F38\u51FA\u5176\u4ED6\u591A\u9918\
+            \u7684\u5167\u5BB9\n```\n{{#1721919637363.item#}}\n```"
+        selected: false
+        title: "\u7B2C\u4E00\u6B21\u7FFB\u8B6F"
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      extent: parent
+      height: 98
+      id: '1721919747261'
+      parentId: '1721919637363'
+      position:
+        x: 117
+        y: 85
+      positionAbsolute:
+        x: 1059
+        y: 386.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1001
+    - data:
+        code: "def main(\n    headers: list[str], merged_chapters_content: list[str]\n\
+          ) -> dict:\n    result = ''\n    for i, header in enumerate(headers):\n\
+          \        result = result + '\\n' + header + '\\n\\n' + merged_chapters_content[i]\
+          \ + '\\n'\n    result = result.strip() + '\\n'\n    return {\n        'result':\
+          \ result,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: "\u5408\u4F75\u6A19\u984C\u548C\u5167\u5BB9"
+        type: code
+        variables:
+        - value_selector:
+          - '1721909973478'
+          - headers
+          variable: headers
+        - value_selector:
+          - '17219802743190'
+          - merged_chapters_content
+          variable: merged_chapters_content
+      height: 54
+      id: '1721925983224'
+      position:
+        x: 2291
+        y: 301.5
+      positionAbsolute:
+        x: 2291
+        y: 301.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        isInIteration: true
+        iteration_id: '1721919637363'
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemma2
+          provider: ollama
+        prompt_template:
+        - id: 2edd232e-525c-4de9-86ee-af2c7c083cd5
+          role: system
+          text: "\u539F\u6587:\n```\n{{#1721919637363.item#}}\n```\n\n\u8B6F\u6587\
+            :\n```\n{{#1721919747261.text#}}\n```\n\n\u4EE5\u4E0A\u8B6F\u6587\u662F\
+            \u5C07\u539F\u6587\u7684\u82F1\u6587\u7FFB\u8B6F\u70BA\u7E41\u9AD4\u4E2D\
+            \u6587\uFF0C\u8ACB\u6BD4\u5C0D\u539F\u6587\u8207\u8B6F\u6587\u9032\u4E00\
+            \u6B65\u512A\u5316\u7FFB\u8B6F\uFF0C\u4E26\u76F4\u63A5\u8F38\u51FA\u7FFB\
+            \u8B6F\u7D50\u679C\uFF0C\u4E0D\u8981\u9032\u884C\u89E3\u91CB\u8207\u8F38\
+            \u51FA\u5176\u4ED6\u591A\u9918\u7684\u5167\u5BB9"
+        selected: false
+        title: "\u7B2C\u4E8C\u6B21\u7FFB\u8B6F"
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      extent: parent
+      height: 98
+      id: '1721977393700'
+      parentId: '1721919637363'
+      position:
+        x: 421
+        y: 85
+      positionAbsolute:
+        x: 1363
+        y: 386.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "\ndef main(chapters_content: list[str]) -> dict:\n    chapter_paragraphs_num\
+          \ = []\n    all_paragraphs = []\n    for chapter in chapters_content:\n\
+          \        paragraphs = chapter.split('\\n\\n')\n        chapter_paragraphs_num.append(len(paragraphs))\n\
+          \        all_paragraphs.extend(paragraphs)\n    return {\n        'all_paragraphs':\
+          \ all_paragraphs,\n        'chapter_paragraphs_num': chapter_paragraphs_num,\n\
+          \    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          all_paragraphs:
+            children: null
+            type: array[string]
+          chapter_paragraphs_num:
+            children: null
+            type: array[number]
+        selected: false
+        title: "\u7AE0\u7BC0\u5167\u5BB9\u62C6\u6BB5\u843D(\u7D00\u9304\u6BB5\u843D\
+          \u6578)"
+        type: code
+        variables:
+        - value_selector:
+          - '1721909973478'
+          - chapters_content
+          variable: chapters_content
+      height: 54
+      id: '1721977747624'
+      position:
+        x: 638
+        y: 301.5
+      positionAbsolute:
+        x: 638
+        y: 301.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(\n    merged_paragraphs: list[str], chapter_paragraphs_num:\
+          \ list[int]\n) -> dict:\n    merged_chapters_content = []\n    start_index\
+          \ = 0\n    for num in chapter_paragraphs_num:\n        chapter_paragraphs_list\
+          \ = merged_paragraphs[start_index : start_index + num]\n        start_index\
+          \ = start_index + num\n        chapter_content = '\\n\\n'.join(chapter_paragraphs_list)\n\
+          \        merged_chapters_content.append(chapter_content)\n    return {\n\
+          \        'merged_chapters_content': merged_chapters_content,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          merged_chapters_content:
+            children: null
+            type: array[string]
+        selected: false
+        title: "\u62FC\u63A5\u56DE\u7AE0\u7BC0\u7684\u6BB5\u843D"
+        type: code
+        variables:
+        - value_selector:
+          - '17239538818890'
+          - merged_paragraphs
+          variable: merged_paragraphs
+        - value_selector:
+          - '1721977747624'
+          - chapter_paragraphs_num
+          variable: chapter_paragraphs_num
+      height: 54
+      id: '17219802743190'
+      position:
+        x: 1987
+        y: 301.5
+      positionAbsolute:
+        x: 1987
+        y: 301.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(\n    all_paragraphs: list[str], translated_all_paragraphs:\
+          \ list[str]\n) -> dict:\n    merged_paragraphs = []\n    for i in range(len(all_paragraphs)):\n\
+          \        merged_paragraphs.append(\n            all_paragraphs[i] + '\\\
+          n\u4E2D\u6587\u7FFB\u8B6F\\n' + translated_all_paragraphs[i]\n        )\n\
+          \n    return {\n        'merged_paragraphs': merged_paragraphs,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          merged_paragraphs:
+            children: null
+            type: array[string]
+        selected: false
+        title: "\u5408\u4F75\u4E2D\u82F1\u6587\u6BB5\u843D"
+        type: code
+        variables:
+        - value_selector:
+          - '1721977747624'
+          - all_paragraphs
+          variable: all_paragraphs
+        - value_selector:
+          - '1721919637363'
+          - output
+          variable: translated_all_paragraphs
+      height: 54
+      id: '17239538818890'
+      position:
+        x: 1683
+        y: 301.5
+      positionAbsolute:
+        x: 1683
+        y: 301.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -1857.5720954989688
+      y: 107.45335624203432
+      zoom: 0.9236555375410265
